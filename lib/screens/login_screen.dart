@@ -17,8 +17,8 @@ class _Login_ScreenState extends State<Login_Screen> {
       _formKey.currentState.save();
       print(email);
       print(password);
-      //AuthService.login(email, password);
     }
+    AuthService.login(context, email, password);
   }
 
   @override
@@ -30,8 +30,8 @@ class _Login_ScreenState extends State<Login_Screen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Instagram',
-              style: TextStyle(fontFamily: 'Billabong', fontSize: 50.0),
+              'App Fideliza',
+              style: TextStyle(fontFamily: 'Billabong', fontSize: 40.0),
             ),
             Form(
               key: _formKey,
@@ -54,7 +54,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                         EdgeInsets.symmetric(horizontal: 30.0, vertical: 10.0),
                     child: TextFormField(
                       decoration: InputDecoration(labelText: 'Password'),
-                      validator: (input) => input.length < 6
+                      validator: (input) => input.length <= 6
                           ? 'Please enter a valid password'
                           : null,
                       onSaved: (input) => password = input,
@@ -68,7 +68,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                     width: 250.0,
                     child: FlatButton(
                       onPressed: _submit,
-                      color: Colors.blue,
+                      color: Colors.black,
                       child: Text(
                         'Login',
                         style: TextStyle(color: Colors.white, fontSize: 18.0),

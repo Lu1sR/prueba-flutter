@@ -18,11 +18,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Home_Screen(),
+      home: Login_Screen(),
       routes: {
-        Login_Screen.id: (context) => Login_Screen(),
         Signup_Screen.id: (context) => Signup_Screen(),
-        Feed_Screen.id: (context) => Feed_Screen(),
       },
     );
   }

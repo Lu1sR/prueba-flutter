@@ -8,37 +8,36 @@ import 'profile_screen.dart';
 import 'feed_screen.dart';
 
 class Home_Screen extends StatefulWidget {
+  var userData;
+  Home_Screen(this.userData);
   @override
+  static final String id = 'home_screen';
   _Home_ScreenState createState() => _Home_ScreenState();
 }
 
 class _Home_ScreenState extends State<Home_Screen> {
   int _currentTab = 0;
   PageController _pageController;
+  var data;
 
   @override
   void initState() {
     super.initState();
+
     _pageController = PageController();
+    data = widget.userData;
+    print(data);
   }
 
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Text(
-          'Instagram',
-          style: TextStyle(
-            color: Colors.black,
-            fontFamily: 'Billabong',
-            fontSize: 35.0,
-          ),
-        ),
       ),
       body: PageView(
         controller: _pageController,
         children: <Widget>[
-          Feed_Screen(),
+          Feed_Screen(data),
           Search_Screen(),
           CreatePost_Screen(),
           Notification_Screen(),
@@ -70,19 +69,19 @@ class _Home_ScreenState extends State<Home_Screen> {
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.search,
+                Icons.shopping_basket,
                 size: 32.0,
               ),
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.photo_camera,
+                Icons.room,
                 size: 32.0,
               ),
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.notifications,
+                Icons.cake,
                 size: 32.0,
               ),
             ),

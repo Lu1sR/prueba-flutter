@@ -9,9 +9,26 @@ class _Profile_ScreenState extends State<Profile_Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text('Profile'),
+      body: new RefreshIndicator(
+        child: Column(
+          children: <Widget>[
+            Center(
+              child: Text("Puntos"),
+            ),
+            Container(
+              child: Text('Abajo'),
+            )
+          ],
+        ),
+        onRefresh: _handle,
       ),
     );
+  }
+
+  Future<Null> _handle() async {
+    setState(() {
+      print('hola');
+    });
+    return null;
   }
 }
